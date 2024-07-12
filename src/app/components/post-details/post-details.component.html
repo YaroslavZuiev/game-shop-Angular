@@ -1,0 +1,3 @@
+<section class="post-details" *ngIf="(post$ | async) as post">
+  <img [src]="post.image" alt="poster image">
+</section>

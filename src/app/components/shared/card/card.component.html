@@ -1,0 +1,11 @@
+<div class="info-card"
+     (mouseenter)="togglePanel(true)"
+     (mouseleave)="togglePanel(false)">
+  <div class="info-card__top">
+    <img class="info-card__top--poster" [src]="post.image" alt="poster image">
+  </div>
+  <div class="panel" [class.active]="isActivePanel">
+    <h2 class="panel__title m-0">{{ post.title }}</h2>
+    <span class="panel__price">{{ post.price }}$</span>
+  </div>
+</div>

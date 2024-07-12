@@ -1,0 +1,15 @@
+.dashboard {
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  position: relative;
+  height: calc(100% - 128px);
+  background: url("/assets/dashboard-image.png") center no-repeat;
+  background-size: cover;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}

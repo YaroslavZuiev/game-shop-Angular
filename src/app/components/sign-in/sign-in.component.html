@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup" class="sign-page">
+    <div class="sign-page__fields">
+      <mat-form-field>
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="example@example.com"
+          formControlName="email"
+          (blur)="updateErrorMessage()"
+          required
+        />
+        @if (emailControl.invalid) {
+          <mat-error>{{ errorMessage() }}</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput formControlName="password" [type]="hidePassword() ? 'password' : 'text'"/>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="togglePasswordVisibility($event)"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword()"
+        >
+          <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        @if (formGroup.get('password').invalid) {
+          <mat-error>Password field is required</mat-error>
+        }
+      </mat-form-field>
+      <button type="submit" mat-raised-button [disabled]="formGroup.invalid" (click)="onSubmit()">Login</button>
+      <button class="mt-2" mat-raised-button (click)="signUp()">Create account</button>
+    </div>
+</form>

@@ -1,0 +1,19 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.h-64 {
+  box-shadow: 5px 5px 5px;
+  background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ffff00, #00ffff, #ff00ff);
+  background-size: 1200% 1200%;
+  animation: GradientBackground 50s ease infinite;
+}
+
+@keyframes GradientBackground {
+  0% { background-position: 0 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}

@@ -1,0 +1,41 @@
+<section class="create-post">
+  <h1 class="pt-5" style="text-align: center">Create Post</h1>
+  <form class="create-post__form" [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        formControlName="title"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea
+        formControlName="description"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="5"
+        cdkAutosizeMaxRows="5">
+      </textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <textarea
+        formControlName="price"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5">
+      </textarea>
+    </mat-form-field>
+    <div class="file-upload-wrapper">
+      <label class="file-upload">
+        <input type="file" (change)="previewFile($event)"/>
+        Select Poster Image
+      </label>
+      <img *ngIf="previewUrl" [src]="previewUrl" class="preview" alt="Selected Image">
+    </div>
+    <button class="mt-2" mat-raised-button (click)="onSubmit()">Create Post</button>
+  </form>
+</section>

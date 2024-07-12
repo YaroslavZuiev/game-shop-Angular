@@ -1,0 +1,48 @@
+<form [formGroup]="form" class="sign-page">
+  <div class="sign-page__fields">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input formControlName="firstName" matInput required/>
+      @if (form.get('firstName').invalid) {
+        <mat-error>First Name field is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name Name</mat-label>
+      <input formControlName="lastName" matInput required/>
+      @if (form.get('lastName').invalid) {
+        <mat-error>Last Name field is required</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="example@example.com"
+        formControlName="email"
+        (blur)="updateErrorMessage()"
+        required
+      />
+      @if (emailControl.invalid) {
+        <mat-error>{{ errorMessage() }}</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input matInput formControlName="password" [type]="hidePassword() ? 'password' : 'text'"/>
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="togglePasswordVisibility($event)"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hidePassword()"
+      >
+        <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      @if (form.get('password').invalid) {
+        <mat-error>Password field is required</mat-error>
+      }
+    </mat-form-field>
+    <button mat-raised-button [disabled]="form.invalid" (click)="onSubmit()">Create Account</button>
+  </div>
+</form>
