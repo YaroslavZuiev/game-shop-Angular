@@ -1,0 +1,8 @@
+.post-details {
+  display: flex;
+  flex-direction: column;
+
+  &__poster {
+    max-width: 400px;
+  }
+}

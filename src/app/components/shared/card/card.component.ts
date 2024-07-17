@@ -1,10 +1,12 @@
 import {Component, Input} from '@angular/core';
 import {PostModel} from "../../../models/post.model";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-card',
   standalone: true,
   imports: [
+    MatIcon
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'

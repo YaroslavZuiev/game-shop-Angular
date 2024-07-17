@@ -40,12 +40,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: max-content;
   }
 
   &__price {
     text-align: center;
     width: 100%;
     display: block;
+    height: min-content;
   }
 }
 

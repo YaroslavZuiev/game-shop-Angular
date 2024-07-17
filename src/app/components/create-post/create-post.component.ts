@@ -7,6 +7,7 @@ import {MatInput} from "@angular/material/input";
 import {CdkTextareaAutosize} from "@angular/cdk/text-field";
 import {MatButton} from "@angular/material/button";
 import {PostsService} from "../../services/posts.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-post',
@@ -31,6 +32,7 @@ export class CreatePostComponent implements OnInit {
   public previewUrl: string | ArrayBuffer | null = '';
 
   private postService = inject(PostsService);
+  private router = inject(Router);
 
   public ngOnInit(): void {
     this.initForm();
@@ -58,8 +60,8 @@ export class CreatePostComponent implements OnInit {
       formData.append(key, value as string | Blob)
     })
     this.postService.createPost(formData).subscribe({
-      next:  () => {
-        console.log('Post successfully created');
+      next:  async () => {
+        await this.router.navigate(['dashboard/posts']);
       }
     })
   }

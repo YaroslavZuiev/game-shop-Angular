@@ -21,7 +21,7 @@ export class HeaderComponent {
   private router = inject(Router);
 
   public async logOut(): Promise<void> {
-    sessionStorage.removeItem('access_token');
+    localStorage.removeItem('access_token');
     await this.router.navigate(['sign-in']);
   }
 

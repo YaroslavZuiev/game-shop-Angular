@@ -1,5 +1,13 @@
 <section class="posts">
   <div class="posts__card" *ngFor="let post of posts$ | async">
+    <div class="posts__card--delete">
+      <mat-icon
+        class="delete"
+        aria-hidden="false"
+        fontIcon="delete"
+        (click)="deletePost(post.id)">
+      </mat-icon>
+    </div>
     <app-card [post]="post" (click)="getPostDetails(post)"></app-card>
   </div>
 </section>

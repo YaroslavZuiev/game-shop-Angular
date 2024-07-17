@@ -4,7 +4,34 @@
   flex-wrap: wrap;
 
   &__card {
-    padding: 0 8px;
+    padding: 0 8px 8px;
     flex: 0 0 33.3333%;
+
+    &--delete {
+      color: #fff;
+      top: 16px;
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 16px;
+    }
+  }
+}
+
+.delete {
+  position: absolute;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .4s all ease;
+
+  &:hover {
+    background: gray;
+    border-radius: 4px;
   }
 }

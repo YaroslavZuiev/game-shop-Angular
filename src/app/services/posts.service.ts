@@ -23,4 +23,8 @@ export class PostsService {
   public getPostDetails(postId: number): Observable<PostModel> {
     return this.http.get<PostModel>(`${baseUrlCont}/posts/post-details?postId=${postId}`);
   }
+
+  public deletePost(postId: number): Observable<void> {
+    return this.http.delete<void>(`${baseUrlCont}/posts?id=${postId}`);
+  }
 }
