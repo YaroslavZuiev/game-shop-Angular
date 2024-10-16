@@ -45,6 +45,7 @@ export class SignUpComponent implements OnInit {
         await this.router.navigate(['sign-in']);
       },
       error: (err) => {
+        console.log(err)
         //TODO add error toast
       }
     })

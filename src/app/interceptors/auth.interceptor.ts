@@ -12,12 +12,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next, router = inject(Ro
         ['x-auth-token']: `${token}`
       }
     });
-  } else {
-    router.navigate(['sign-in']).then();
   }
   return next(req).pipe(
     catchError((err: HttpErrorResponse) => {
-      router.navigate(['sign-in']).then();
       return throwError(() => err);
     })
   );
